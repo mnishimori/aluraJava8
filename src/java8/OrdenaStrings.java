@@ -76,10 +76,19 @@ public class OrdenaStrings {
 		System.out.println(palavras);
 		
 		
-		System.out.println("\nOrdenação sem o método compare, com lâmbda");
+		System.out.println("\nOrdenação sem o método compare, com lâmbda ");
 		palavras.sort((o1, o2) -> o1.length() - o2.length());
 		System.out.println(palavras);
+
 		
+		System.out.println("\nOrdenação com lâmbda e Comparator");
+		palavras.sort(Comparator.comparing(s -> s.length()));
+		System.out.println(palavras);
+		
+		
+		System.out.println("\nOrdenação com lâmbda e referece method");
+		palavras.sort(Comparator.comparing(String::length));
+		System.out.println(palavras);
 		
 		// new Thread(() -> System.out.println("Executando um Runnable")).start();
 	}
