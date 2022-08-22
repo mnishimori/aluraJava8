@@ -15,6 +15,12 @@ public class ExemploCursos {
 		
 		cursos.sort(Comparator.comparingInt(Curso::getAlunos));
 		System.out.println(cursos);
+		
+		cursos.stream()
+			.filter(c -> c.getAlunos() > 50)
+			.sorted(Comparator.comparing(Curso::getAlunos).reversed())
+			.map(Curso::getNome)
+			.forEach(System.out::println);
 	}
 
 }
