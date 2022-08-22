@@ -3,6 +3,8 @@ package java8;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class ExemploCursos {
 
@@ -21,6 +23,11 @@ public class ExemploCursos {
 			.sorted(Comparator.comparing(Curso::getAlunos).reversed())
 			.map(Curso::getNome)
 			.forEach(System.out::println);
+		
+		Map<String, Integer> cursosMap = cursos.stream()
+			.collect(Collectors.toMap(Curso::getNome, Curso::getAlunos));
+		
+		cursosMap.forEach((nome, alunos) -> System.out.println(nome + " tem " + alunos + " alunos matriculados"));
 	}
 
 }
